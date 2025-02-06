@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>영화 설명</title>
+        <style>
+            body{ font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; background-color:beige;}
+            h1{ color: black;}
+            img{ border: 5px solid beige; border-radius: 10px; margin: 20px 0;}
+            p{ color: black; font-size: 18px;}
+        </style>
+    </head>
+    <body>
+       <h1>영화 소개</h1>
+       <img src="img/img.jpg" width="300" height="300" alt="재밌습니다">
+       <p>이 사진은 검은 수녀들 입니다.</p>
+       <p id ="desciption"></p>
+       <button onclick="fn_change(this)">더 알아보기</button>
+       <script>
+            function fn_change(obj)
+            {
+                var des = document.getElementById("desciption");
+                des.textContent = "이 영화는 새로운 기술과 감동적인 연출로...";
+                obj.style.display = "none";
+            }
+       </script>
+    </body>
+</html>

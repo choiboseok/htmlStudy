@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 응용 메뉴 만들기</title>
+    <style>
+        .fullscreen{
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url(./sample/img/bali.jpg);
+            background-size: cover;
+            z-index: -3;
+        }
+        #menubar {background-color: black; opacity: 0.5; }
+        #menubar ul li a {color: white; text-decoration: none; } 
+        #menubar ul {margin: 0; padding: 0; width: 100%;}
+        #menubar ul li {display: inline; list-style-type: none; left: 20px; right: 30px; padding: 0px 20px;}
+        #menubar ul li a:hover {color: khaki;}
+    </style>
+</head>
+<body>
+    <div id="menubar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Espresso</a></li>
+            <li><a href="#">Latte</a></li>
+            <li><a href="#">F.A.Q</a></li>
+        </ul>
+    </div>
+    <div class="fullscreen"></div>
+</body>
+</html>

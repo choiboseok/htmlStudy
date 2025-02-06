@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d-day</title>
+    <script src="dday.js"></script>
+    <script>
+        // console.log(fn_dday('2025-02-01', 100));
+        function fn_change()
+        {
+            let dday =document.getElementById('dday').value;
+            let day = document.getElementById('day').value;
+            let userDday = fn_dday(dday, parseInt(day));
+            let week = ["일", "월", "화", "수", "목", "금", "토"];
+            console.log(userDday);
+            let days = new Date(userDday).getDay();
+            console.log(days);
+            document.getElementById("view").innerHTML=`${dday}로 부터<br>${day}일 기념일은<br>${userDday}${week[days]} 입니다.`;
+
+        }
+    </script>
+</head>
+<body>
+    <h2>기념일 계산기</h2>
+    <form action="#">
+        <label for="">기념일</label>
+        <input type="date" id="dday">
+        <input type="text" id="day" placeholder="몇일뒤?">
+        <input type="button" value="계산" onclick="fn_change()">
+    </form>
+    <div id="view"> 계산 결과</div>
+</body>
+</html>

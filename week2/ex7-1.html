@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날짜 객체</title>
+</head>
+<body>
+    <script>
+        //코어 객체 Date
+        //코어 객체는 javascript 어디서든 사용가능
+        let now = new Date();
+        console.log("now", now);
+        //모든 객체에는 객체의 고유한 소석(프로퍼티)와 고유한 기능(함수)가 있음
+        console.log(now.getDate());
+        console.log(now.getMonth());
+        console.log(now.getFullYear());
+        //GMT 협정 세계시, 그리니치 천문대
+        //UTC 협정 세계시
+        console.log("getTime", now.getTime()); //밀리초 출력
+        console.log("UTC", now.toUTCString());
+
+        let startData = prompt("기념일 시작일 입력!", "2025-01-21");
+        let userDate = new Date(startData); // 입력 받은 날짜의 객체 생성
+
+        let now_time = now.getTime();
+        let user_time = userDate.getTime();
+        console.log("현재", now_time);
+        console.log("사용자", user_time);
+
+        let secTime = now_time - user_time;
+        console.log(secTime);
+        let day = Math.ceil(secTime/(24*60*60*1000));
+        console.log(day + "지남");
+
+    </script>
+</body>
+</html>

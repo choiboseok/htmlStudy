@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별다줄</title>
+</head>
+<body>
+    <h3>사용자에게 문장을 입력받아 별다줄 해주세요.</h3>
+    <hr>
+    <script>
+        let str = prompt("문장을 입력해주세요");
+        let word = str.split(" ");
+        document.write(str + "의 줄임말은: ");
+        for(let i=0; i<word.length; i++)
+        {
+            document.write(`<b>${word[i][0]}`);            
+        }
+    </script>
+</body>
+</html>

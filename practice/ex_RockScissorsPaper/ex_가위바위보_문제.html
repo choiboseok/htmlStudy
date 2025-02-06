@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<style>
+	body { text-align:center}
+	span { font-size: 30px;}
+	#vs_id { font-size: 100px; color: red;}
+</style>
+<meta charset = "UTF-8">
+<title> 가위바위보 </title>
+<script>
+	document.write("<h1>컴퓨터 가위, 바위, 보 맞추기</h1>");
+	let game = prompt("가위, 바위, 보 중 선택하세요?", "가위");
+	let com = Math.ceil( Math.random() * 3 ); //1 ,2 , 3
+
+	switch (game) 
+	{
+		case "가위":
+			usernum=1;
+			if(com==1) {document.write("<img src='./images/math_com_1.jpg'>")}
+			else if(com==2) document.write("<img src='./images/math_com_2.jpg'>")
+			else if(com==3) document.write("<img src='./images/math_com_3.jpg'>")
+			document.write("<img src='./images/math_user_1.jpg'>")
+			break;
+		case "바위":
+			usernum=2;
+			if(com==1) {document.write("<img src='./images/math_com_1.jpg'>")}
+			else if(com==2) document.write("<img src='./images/math_com_2.jpg'>")
+			else if(com==3) document.write("<img src='./images/math_com_3.jpg'>")
+			document.write("<img src='./images/math_user_2.jpg'>")
+			break;
+		case "보":
+			usernum=3;
+			if(com==1) {document.write("<img src='./images/math_com_1.jpg'>")}
+			else if(com==2) document.write("<img src='./images/math_com_2.jpg'>")
+			else if(com==3) document.write("<img src='./images/math_com_3.jpg'>")
+			document.write("<img src='./images/math_user_3.jpg'>")
+			break;
+		default: alert("잘못 입력하였습니다.")
+		location.reload();
+	}
+	
+	document.write("<hr>")
+	document.write("컴퓨터: ", com, "<span id='vs_id'>vs</span> 사용자:", usernum);
+
+	if((usernum==1 && com==2) || (usernum==2 && com==3) || (usernum==3 && com==1)) 
+	{
+		document.write("<img src='./images/game_2.jpg'>");
+	}else if((usernum==1 && com==3) || (usernum==2 && com==1) || (usernum==3 && com==2))
+	{
+		document.write("<img src='./images/game_1.jpg'>");
+	}else if(usernum==com)
+	{
+		document.write("<img src='./images/game_3.jpg'>");
+	}
+	// 1=가위 2=바위 3=보
+	//game 1=승리 2=패배 3=무승부
+
+</script>
+</head>
+<body>
+	<!--
+	<div>
+		<span>
+			<img src="" alt="">
+		</span>
+	</div>
+	-->
+	</body>
+
+</html>

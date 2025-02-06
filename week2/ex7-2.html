@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 배열 array</title>
+    <script>
+        // let plots = [];
+        // let plots = new Array();
+        // let plots = [50, 5, 8, 15];
+        let plots = new Array(50, 5.1, "길동", new Date()); // 위와 동일
+        console.log(plots[0]);
+        console.log("배열 객체 기본 속성값 length:", plots.length);
+        for(let i=0; i<plots.length; i++)
+        {
+            console.log(plots[i]);
+        }
+
+        console.log("===============");
+        let a = ["황", "김", "이"];
+        let b = ["박"];
+        let c;
+        c = a.concat(b); // concat 배열 결함
+        console.log("c:", c);
+        console.log("join 배열 요소 문자열 결합", c.join());
+        console.log("join 배열 요소 문자열 결합", c.join("_"));
+        console.log("reverse 전:", a);
+        a.reverse();
+        console.log("reverse 후:", a);
+
+        //push - 요소 추가, pop - 마지막 요소 제거
+        c.push("최");
+        console.log("push:", c);
+        c.pop();
+        console.log("pop:", c);
+        //shift 처음요소 꺼내오고 배열에는 삭제
+        let shift_c = c.shift();
+        console.log("shift:", shift_c, "c:", c);
+        c.unshift("권"); // 배열 처음 요소에 추가
+        console.log("unshift:", c);
+
+        for(let i=0; i<c.length; i++)
+        {
+            console.log(c[i]);
+        }
+        for(let i in c) //index가 필요할때
+        {
+            console.log(i, c[i]);
+        }
+        for(let v of c) //value만 필요할때
+        {
+            console.log(v);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
