@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image 객체(이미지 로딩), 버튼으로 이미지 넘기기</title>
+    <style> img { width :200px;}</style>
+    <script>
+        let files = ["./img/2.jpg", "./img/3.jpg", "./img/4.jpg", "./img/5.jpg", "./img/6.jpg", "./img/7.jpg", "./img/8.jpg", "./img/1.jpg"];
+        let imgArr = [];
+
+        for (let i=0; i<files.length; i++){
+            imgArr[i] = new Image(); // 이미지 객체 생성
+            imgArr[i].src = files[i]; // 해당 이미지 객체에 이미지 경로등록(load이벤트)
+        }
+
+        let idx = 1;
+        /*
+            if(obj =='>'){
+                idx++;
+                obj.src = imgArr[idx].src;
+                idx %= imgArr.length; // 이미지 수를 넘으면 첨으로 이동
+            }else if(obj == '<'){
+                idx--;
+                obj.src = imgArr[idx].src;
+                idx %= imgArr.length; // 이미지 수를 넘으면 첨으로 이동
+            }
+        */
+        function fn_left(){
+            console.log(idx);
+            if(idx==-1) {idx=files.length-1;}
+            let img = document.getElementById('img_id');
+            img.src = imgArr[idx].src;
+            idx--;
+        }
+        function fn_right(){
+            console.log(idx)
+            if(idx == files.length) {idx=0;}
+            let img = document.getElementById('img_id');
+            img.src = imgArr[idx].src;
+            idx++;
+        }
+       
+    </script>
+</head>
+<body>
+    <h3>이미지를 클릭하면 다음 이미지를 보여줌</h3>
+    <hr>
+    <div>
+        <button type="button" onclick="fn_left()"> < </button>
+        <img src="./img/1.jpg" id="img_id" alt="">
+        <button type="button" onclick="fn_right()"> > </button>
+    </div>
+</body>
+</html>
