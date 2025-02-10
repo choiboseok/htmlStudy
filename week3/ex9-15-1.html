@@ -27,18 +27,18 @@
             }
         */
         function fn_left(){
+            idx--;
             console.log(idx);
             if(idx==-1) {idx=files.length-1;}
             let img = document.getElementById('img_id');
             img.src = imgArr[idx].src;
-            idx--;
         }
         function fn_right(){
+            idx++;
             console.log(idx)
             if(idx == files.length) {idx=0;}
             let img = document.getElementById('img_id');
             img.src = imgArr[idx].src;
-            idx++;
         }
        
     </script>
