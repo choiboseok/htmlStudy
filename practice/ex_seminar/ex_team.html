@@ -14,8 +14,8 @@
 
             // 추첨하기 클릭시 classMate를 랜덤 순서로 셔플 
             for (let a = 0; a < classMate.length; a++) {
-                i = parseInt(Math.random() * (classMate.length - 1));
-                j = parseInt(Math.random() * (classMate.length - 1));
+                i = parseInt(Math.random() * (classMate.length));
+                j = parseInt(Math.random() * (classMate.length));
                 temp = classMate[i];
                 classMate[i] = classMate[j];
                 classMate[j] = temp
@@ -26,14 +26,14 @@
             let team=[];
             for(let i=0; i<3; i++){
                 for(let j=0; j<5; j++){
-                    team[j] = classMate[k];
+                    team[j] = classMate[k-1];
                     k--;
                 }
-                let str = document.createElement('div');
+                let div = document.createElement('div');
                 let arr = document.getElementById('teams');
-                str.className = 'team-box';
-                str.innerHTML = "팀" + (i+1) + "<br>" + team;
-                arr.appendChild(str);
+                div.className = 'team-box';
+                div.innerHTML = "팀" + (i+1) + "<br>" + team;
+                arr.appendChild(div);
             }
             // 출력 후 버튼
         }
