@@ -8,36 +8,24 @@
     <script>
         let files = ["./img/2.jpg", "./img/3.jpg", "./img/4.jpg", "./img/5.jpg", "./img/6.jpg", "./img/7.jpg", "./img/8.jpg", "./img/1.jpg"];
         let imgArr = [];
-
+        let img;
+        window.onload = function(){ // 온로드 되었을때 img 담기
+            img = document.getElementById('img_id');
+        }
         for (let i=0; i<files.length; i++){
             imgArr[i] = new Image(); // 이미지 객체 생성
             imgArr[i].src = files[i]; // 해당 이미지 객체에 이미지 경로등록(load이벤트)
         }
 
         let idx = 1;
-        /*
-            if(obj =='>'){
-                idx++;
-                obj.src = imgArr[idx].src;
-                idx %= imgArr.length; // 이미지 수를 넘으면 첨으로 이동
-            }else if(obj == '<'){
-                idx--;
-                obj.src = imgArr[idx].src;
-                idx %= imgArr.length; // 이미지 수를 넘으면 첨으로 이동
-            }
-        */
         function fn_left(){
+            if(idx==0) {idx=imgArr.length-1;}
             idx--;
-            console.log(idx);
-            if(idx==-1) {idx=files.length-1;}
-            let img = document.getElementById('img_id');
             img.src = imgArr[idx].src;
         }
         function fn_right(){
+            if(idx == imgArr.length) {idx=0;}
             idx++;
-            console.log(idx)
-            if(idx == files.length) {idx=0;}
-            let img = document.getElementById('img_id');
             img.src = imgArr[idx].src;
         }
        
