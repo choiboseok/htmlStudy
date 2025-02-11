@@ -14,13 +14,13 @@
 
             // 추첨하기 클릭시 classMate를 랜덤 순서로 셔플 
             for (let a = 0; a < classMate.length; a++) {
-                i = parseInt(Math.random() * (classMate.length - 1));
-                j = parseInt(Math.random() * (classMate.length - 1));
+                i = parseInt(Math.random() * (classMate.length));
+                j = parseInt(Math.random() * (classMate.length));
                 temp = classMate[i];
                 classMate[i] = classMate[j];
                 classMate[j] = temp
             }
-            // // 팀은 총 3팀으로 3개의 빈배열을 만들어 담아주고 
+            // 팀은 총 3팀으로 3개의 빈배열을 만들어 담아주고 
             // 화면에 출력 div id = 'teams' appendChild (css는 div의 class를 team-box 넣어주면 됨)
             let k=classMate.length;
             let team=[];
@@ -29,11 +29,11 @@
                     team[j] = classMate[k];
                     k--;
                 }
-                let str = document.createElement('div');
+                let div = document.createElement('div');
                 let arr = document.getElementById('teams');
-                str.className = 'team-box';
-                str.innerHTML = "팀" + (i+1) + "<br>" + team;
-                arr.appendChild(str);
+                div.className = 'team-box';
+                div.innerHTML = "팀" + (i+1) + "<br>" + team;
+                arr.appendChild(div);
             }
             // 출력 후 버튼
         }
