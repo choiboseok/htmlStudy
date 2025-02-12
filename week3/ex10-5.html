@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #stop{
+            position: fixed; /* stop button 고정 */
+            right: 100px; bottom: 100px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자동 스크롤</title>
+    <script>
+        let timer = null;
+        function autoScroll(){
+            window.scrollBy(0, 10); // (x축, y축)
+        }
+        function startScroll(time){
+            timer = setInterval("autoScroll()", time);
+        }
+        function stop(){
+            clearInterval(timer);
+
+        }
+    </script>
+</head>
+<body onload="startScroll(1000)">
+    <h3>자동 스크롤 페이지</h3>
+    <button id="stop" type="button" onclick="stop()">stop</button>
+    <hr>
+    <div class="tvYb+qfi" data-v-f564c30b=""><ul class="osnIwWC-" data-v-f564c30b=""><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b="">통합검색 - 다양한 종류의 데이터베이스를 검색하여 얻은 검색 결과 중 각 데이터베이스 별로 몇 개의 검색 결과만 차례대로 배열하여 보여주는 검색이다. 인터넷 상에 한글 내지 한국어로 기록된 정보가 부족하다는 단점을 극복하기 위해 등장한 한국에서만 보이는 독특한 형식의 검색이다.</div></li></ul><div class="i3Za4mKT" data-v-f564c30b=""></div><ul class="osnIwWC-" data-v-f564c30b=""><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b="">웹검색(웹문서 검색) - 웹상의 모든 문서를 데이터베이스로 하여, 검색 주제와 맞는 문서를 찾는 검색이다.</div></li><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b="">사이트검색 - 검색 주제와 관련된 사이트를 찾을 때 쓰는 검색이다. 웹검색과는 다르게 사이트의 메인 페이지를 주로 보여준다.</div></li><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b="">사전검색 - 각종 사전을 데이터베이스로 하여 검색 주제와 관련된 내용을 찾을 때 쓰는 검색이다.</div></li><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b="">뉴스검색 - 각종 뉴스 사이트 및 전자화된 신문 등, 뉴스를 데이터베이스로 하여 검색 주제와 관련된 내용을 찾을 때 쓰는 검색이다.</div></li><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b=""><a class="_9PdfgA0B" href="/w/%EC%A7%80%EC%8B%9D%EA%B2%80%EC%83%89" title="지식검색" data-v-f564c30b="">지식검색</a> - 흔히 지식iN으로 알려져 있는 <a class="_9PdfgA0B" href="/w/%EB%84%A4%ED%8B%B0%EC%A6%8C" title="네티즌" data-v-f564c30b="">네티즌</a>이 묻고 네티즌이 답하는 Q&amp;A 서비스이다.</div></li><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b="">지도검색 - 여러 시설의 정보를 기록해 놓고 검색 주제와 맞는 시설의 정보를 지도 위에 표시해서 보여주는 검색이다.</div></li><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b=""><a class="_9PdfgA0B" href="/w/%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EA%B2%80%EC%83%89" title="이미지 검색" data-v-f564c30b="">이미지 검색</a> - 입력한 검색 주제와 맞는 이미지를 검색한다.</div></li><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b="">동영상검색 - 입력한 검색 주제와 맞는 동영상을 검색한다.</div></li><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b="">카페검색 - 각종 카페글을 데이터베이스로 하여 검색 주제와 맞는 글을 찾는 검색이다.</div></li><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b="">블로그검색 - 각종 블로그를 데이터베이스로 하여 검색 주제와 맞는 글을 찾는 검색이다.</div></li><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b="">음악검색 - 각종 음원사이트의 음원 정보를 데이터베이스로 하여 검색 주제와 맞는 음원을 찾는 검색이다.</div></li><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b="">쇼핑검색 - 각종 인터넷 쇼핑 사이트의 매물 정보를 데이터베이스로 하여 검색 주제와 맞는 매물을 찾는 검색이다.</div></li><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b="">책검색 - 각종 인터넷 서점 사이트 및 서점의 전산화 정보를 데이터베이스로 하여 검색 주제와 맞는 책을 찾는 검색이다.</div></li><li data-v-f564c30b=""><div class="i3Za4mKT" data-v-f564c30b="">브라우즈검색</div></li></ul><div class="i3Za4mKT" data-v-f564c30b=""></div>
+</body>
+</html>
