@@ -41,28 +41,40 @@
 
                 // 아이디 비밀번호 입력 체크
                 // 입력 없으면 안됨
+                
                 if (!id.value || !pw.value || !pw2.value) {
                     alert("입력하세요");
                     return;
                 }
                 // 입력 길이 id : 4 ~ 15, pw : 8 ~
-                if (!((id.value.length >= 4) && (id.value.length <= 15) && (pw.value.length > 8))) {
+                if ((id.value.length < 4) && (id.value.length > 15) && (pw.value.length < 8)) {
                     alert("id 4~15 pw 8~ 입력하세요")
+                    id.focus();
+                    pw.focus();
                     return;
                 }
                 // user-pw, user-pw2 입력 갈아야함.
-                if (!(pw.value == pw2.value)) {
+                if (pw.value != pw2.value) {
                     alert("비밀번호가 다릅니다.")
+                    pw2.value="";
+                    pw2.focus;
                     return;
                 }
                 // 저장되어있는 아이디 안됨.
                 let member = JSON.parse(localStorage.getItem("member")) || [];
-                for (let i = 0; i <member.length; i++){
-                    if (id.value == member[i].userId) {
-                        alert("존재하는 아이디입니다.")
-                        return;
-                    }
+                // for (let i = 0; i <member.length; i++){
+                //     if (id.value == member[i].userId) {
+                //         alert("존재하는 아이디입니다.")
+                //         return;
+                //     }
+                // }
+                // some() 배열에 특정조건을 만족하는 요소가 하나라도 있는지 확인 (true or false)
+                // 하나 이상의 요소가 조건을 만족하면 true, 그렇지 않으면 false
+                if(member.some(user => user.userId === id.value )){  
+                    alert("존재하는 아이디입니다.")
+                    return;
                 }
+
                 member.push({ userId: id.value, userPw: pw.value });
                 localStorage.setItem("member", JSON.stringify(member));
                 id.value = "";

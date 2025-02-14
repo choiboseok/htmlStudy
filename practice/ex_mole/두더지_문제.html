@@ -67,12 +67,10 @@
       count += 1;
       score += 1;
       point.innerHTML = score;
-      if(count > 1){
-        
-      }
+      hideMole();
     }
     function fn_time(){
-      time -= 1;
+      time--;
       timer.innerHTML = time;
       if(time==-1){
         clearInterval(fn_time());

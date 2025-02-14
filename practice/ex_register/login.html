@@ -12,20 +12,31 @@
             let id = document.getElementById("user-id");
             let pw = document.getElementById("user-pw");
             let member = JSON.parse(localStorage.getItem("member")) || [];
-            for (let i = 0; i < member.length; i++) {
-                if ((id.value == member[i].userId) && (pw.value == member[i].userPw)) {
-                    let User = id.value;
-                    sessionStorage.setItem("loginUser", User);// 세션스토리지에 유저정보 저장
-                    location.href = "main.html";
-                }
+            // for (let i = 0; i < member.length; i++) {
+            //     if ((id.value == member[i].userId) && (pw.value == member[i].userPw)) {
+            //         let User = id.value;
+            //         sessionStorage.setItem("loginUser", User);// 세션스토리지에 유저정보 저장
+            //         location.href = "main.html";
+            //     }
+            // }
+
+            // find() 배열에서 해당 조건을 만족하는 첫번째 요소를 가져옴
+            let user = member.find(mem => mem.userId === id.value);
+            if(!user){
+                alert("아이디가 없으세요");
+                return;
+            }
+            if(user.userPw !== pw.value){
+                alert("비번 틀림");
+                return;
             }
 
             // 세션스토리지에 해당 아이디정보를 저장 후 -> main.html로 이동
 
             // sample
             // let testUser = "pangsu";
-            // sessionStorage.setItem("loginUser", testUser);// 세션스토리지에 유저정보 저장
-            // location.href = "main.html";
+            sessionStorage.setItem("loginUser", id.value);// 세션스토리지에 유저정보 저장
+            location.href = "main.html";
             // // 세션 스토리지는 브라우저 탭(세션) 종료시 삭제됨
             // 같은 브라우저에서 리로드, 페이지 이동은 유지됨.
         }
