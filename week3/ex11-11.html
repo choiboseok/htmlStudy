@@ -27,13 +27,24 @@
             dragging = true;
             startX = e.offsetX; // 시작 위치
             startY = e.offsetY;
+            if(tool == 'E'){
+                context.clearRect(startX, startY, size, size);
+            }
         }
         // 사이즈, 색깔 변경
         function change(c){
             if(c.type=="color"){
-                context.strokeStyle = c.value;
+                context.strokeStyle = c.value; // 컬러
             } else if(c.type=="range"){
-                context.lineWidth = c.value
+                context.lineWidth = c.value // 사이즈
+                size = c.value;
+            } else if(c.name == 'tool'){ // 지우개
+                tool = c.value;
+                if(tool == 'E'){
+                    canvas.style.cursor = "url(cursor.cur), auto";
+                } else {
+                    canvas.style.cursor = 'auto';
+                }
             }
         }
         // 클릭 놨을때
@@ -42,10 +53,14 @@
         function out(){ dragging =false; }
         // 그릴때(캔버스 위를 클릭하고 움직일때)
         function draw(curX,curY){
-            context.beginPath();
-            context.moveTo(startX, startY);
-            context.lineTo(curX, curY);
-            context.stroke();
+            if(tool=='P'){
+                context.beginPath();
+                context.moveTo(startX, startY);
+                context.lineTo(curX, curY);
+                context.stroke();
+            } else{
+                context.clearRect(curX, curY, size, size);
+            }
         }
         // 마우스 무브
         function move(e){
@@ -55,6 +70,9 @@
             draw(curX, curY);
             startX = curX;
             startY = curY;
+        }
+        function allclear(){
+            context.clearRect(0, 0, canvas.width, canvas.height);
         }
     </script>
 </head>
@@ -73,10 +91,10 @@
                 <td><input type="range" min="5" max="30" value="1" onchange="change(this)"></td>
             </tr>
             <tr>
-                <td><label for="">부:</label><input type="radio" name="tool">
-                    <label for="">지우개</label><input type="radio" name="tool">
+                <td><label for="">붓:</label><input checked type="radio" name="tool" value="P" onchange="change(this)">
+                    <label for="">지우개</label><input type="radio" name="tool" value="E" onchange="change(this)">
                 </td>
-                <td><button>전체삭제</button></td>
+                <td><button onclick="allclear()">전체삭제</button></td>
             </tr>
         </table>
     </div>
