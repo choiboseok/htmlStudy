@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>움직이는 이미지</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <style>
+        html, body{cursor: none;} /*커서 안보임*/
+        @keyframes blink{ /* 엘리먼트를 변형 시키는 부분*/
+            0%{transform: scaleX(1.5); transform: scaleY(1.5);}
+            60%{transform: scaleX(1.8); transform: scaleY(1.8); opacity: 0.5;}
+            100%{transform: scaleX(1); transform: scaleY(1);}
+        }
+        #parent_id{position: absolute; left: 0; top: 0; margin-top: -25px; margin-left: -25px;}
+        #cursor_item{animation-name: blink; animation-duration: 0.5s; animation-iteration-count: infinite;}
+    </style>
+    <script>
+        $(document).ready(function(){
+            const cursor = $("#parent_id");
+            $(document).mousemove(function(e){
+                cursor.css({transform: 'translate(' + e.clientX + 'px,' + e.clientY + 'px)'});
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="parent_id"> <!-- 이미지 하나로 적용시 애니메이션만 적용이 될 수도 있다. (우선순위가 있는거 같음)-->
+        <img src="./js/finger.jpg" id="cursor_item" width="30px">
+    </div>
+</body>
+</html>
