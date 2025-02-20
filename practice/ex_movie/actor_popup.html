@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="./movie.css">
+    <script>
+        const API_KEY = "7f7314005c9a1bb8ee535cedbd043a27";
+        const CODE_URL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json";
+        const INFO_URL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleInfo.json";
+        $(document).ready(function () {
+            // input code로 
+            // INFO_URL 요청 후 화면에 출력
+            let code = $("#code").val();
+            $.ajax({
+                url: INFO_URL
+                , type: "GET"
+                , dataType: "json"
+                , data: {
+                    "peopleCd": code
+                    , "key": API_KEY
+                }
+                , success: function (res) {
+                    let moveList = res['peopleInfoResult']['peopleInfo']['filmos'];
+                    console.log(moveList);
+                    let nm = res['peopleInfoResult']['peopleInfo']['peopleNm']
+                    let str = '';
+                    moveList.forEach(function(v, i){
+                        str += '<tr>';
+                        str += '<td>' + nm + '</td>';
+                        str += '<td>' + v['moviePartNm'] + '</td>';
+                        str += '<td>' + v['movieCd'] + '</td>';
+                        str += '<td>' + v['movieNm'] + '</td>';
+                        str += '</tr>';
+                    });
+                    $("#movieTableBody").append(str);
+                }
+                , error: function (err) {
+                    console(err);
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>영화인 상세조회</h2>
+        <form action="" id="movieForm">
+            <input type="text" id="code" readonly>
+        </form>
+        <table id="movieTable">
+            <!-- <colgroup>
+                <col style="width: 10%;">
+                </col>
+                <col style="width: 10%;">
+                </col>
+                <col style="width: 10%;">
+                </col>
+                <col style="width: 10%;">
+                </col>
+                <col style="width: 60%;">
+                </col>
+            </colgroup> -->
+            <thead>
+                <tr>
+                    <th>영화인 이름</th>
+                    <th>영화 역할</th>
+                    <th>영화 코드</th>
+                    <th>영화 이름</th>
+                </tr>
+            </thead>
+            <tbody id="movieTableBody"></tbody>
+        </table>
+    </div>
+</body>
+
+</html>

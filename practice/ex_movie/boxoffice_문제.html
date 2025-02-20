@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스오피스 조회</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="movie.css">
+    <script>
+        const API_KEY = "7f7314005c9a1bb8ee535cedbd043a27";
+        const CODE_URL = "https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json";
+        $(document).ready(function () {
+            $("#movieForm").submit(function (e) {
+                $("#movieTableBody").empty();
+                e.preventDefault();
+                let dateInput = $("#dateInput").val();
+                // 입력 날짜 체크
+                let selDate = new Date(dateInput);
+                let today = new Date();
+                today.setHours(0, 0, 0, 0) // 시간 부분
+                if (selDate > today) {
+                    alert("이전 날짜만 조회가능");
+                    return;
+                } else {
+                    dateInput = dateInput.replaceAll("-", "");
+                    $.ajax({
+                        url: CODE_URL
+                        , type: "GET"
+                        , dataType: "json"
+                        , data: {
+                            "targetDt": dateInput
+                            , "key": API_KEY
+                        }
+                        , success: function (res) {
+                            let dailyBoxOfficeList = res['boxOfficeResult']['dailyBoxOfficeList'];
+                            let str = '';
+                            dailyBoxOfficeList.forEach(function (v, i) {
+                                str += "<tr>"
+                                str += "<td>" + v['rank'] + "</td>"
+                                str += "<td>" + v['movieNm'] + "</td>"
+                                str += "<td>" + v['openDt'] + "</td>"
+                                str += "<td>" + v['salesAmt'] + "</td>"
+                                str += "<td>" + v['audiCnt'] + "</td>"
+                                str += "<td>" + v['salesAcc'] + "</td>"
+                                str += "<td>" + v['audiAcc'] + "</td>"
+                                str += "</tr>"
+                            })
+                            $("#movieTableBody").append(str);
+                        }
+                        , error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                }
+                // dailyBoxOffice, 요청 날짜로 (targetDt) 화면에 출력
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>영화 데이터 조회</h2>
+        <form id="movieForm">
+            <label for="dateInput">날짜 입력 (YYYY-MM-DD): </label>
+            <input type="date" id="dateInput" required>
+            <button type="submit">조회</button>
+        </form>
+
+        <table id="movieTable">
+            <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>영화 제목</th>
+                    <th>개봉일</th>
+                    <th>당일 매출액</th>
+                    <th>당일 관객수</th>
+                    <th>누적 매출액</th>
+                    <th>누적 관객수</th>
+                </tr>
+            </thead>
+            <tbody id="movieTableBody">
+                <!-- 데이터가 여기에 추가됩니다 -->
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

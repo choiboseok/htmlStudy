@@ -23,13 +23,27 @@
                     }
                     , headers: { "Authorization": "KakaoAK " + API_KEY }
                     , success: function (res) {
-                        $("#content").empty();
+                    //     $("#content").empty();
+                    //     let arr = res['documents'];
+                    //     arr.forEach((v, i) => { // v는 배열 값, i는 인덱스 0부터 1씩 증가
+                    //         $("#content").append("<h4>" + v['title'] + "</h4><br>");
+                    //         $("#content").append("<p>" + v['contents'] + ""</p><br>");
+                    //         $("#content").append("<a href='"+v['url']+"' >바로가기</a><br>");
+                    // });
                         let arr = res['documents'];
-                        arr.forEach((v, i) => { // v는 배열 값, i는 인덱스 0부터 1씩 증가
-                            $("#content").append("<b>" + v['title'] + "</b><br>");
-                            $("#content").append(v['contents'] + "<br>");
-                            $("#content").append("<a href='"+v['url']+"' >바로가기</a><br>");
+                        let str = '';
+                        $("#content").empty();
+                        arr.forEach(function(v, i) { // function == => 같은 의미임
+                            console.log(i, v);
+                            let title = v['title'];
+                            let contents = v['contents'];
+                            let url = v['url'];
+                            str += "<h4>" + title + "</h4>";
+                            str += "<p>" + contents + "</p>";
+                            str += "<a href = '" + url + "'> 바로가기 </a>";
                         });
+                        $("#content").append(str);
+
                     }
                     , error: function (err) {
                         console.log(err);
