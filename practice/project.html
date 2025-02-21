@@ -5,16 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        div {
-            background-color: white;
-            border: 1px solid black;
-        }
-    </style>
-
 </head>
 
 <body>
+    <div>
+        <input type="text"><button type="button">검색</button> <!-- 오른쪽으로-->
+    </div>
     <div>
         <a href="">어항</a>
         <a href="">여과기</a>
@@ -22,7 +18,7 @@
         <a href="">사료/영양제</a>
         <a href="">소켓/조명</a>
     </div>
-    <div> <b>사이즈</b>
+    <div> <b>사이즈</b> <!-- 각 카테고리별로 체크 박스 정렬 -->
         <br>
         가로
         <input type="checkbox"> 30
@@ -40,8 +36,8 @@
         <input type="checkbox"> 30
         <input type="checkbox"> 45
         <input type="checkbox"> 60
-    </div>
-    <div> <b>여과기 </b>
+        <br>
+        <b>여과기 </b>
         <input type="checkbox"> 측면
         <input type="checkbox"> 상면
         <input type="checkbox"> 저면
@@ -49,14 +45,28 @@
         <input type="checkbox"> 단지
         <input type="checkbox"> 스펀지
         <input type="checkbox"> 걸이식
-    </div>
-    <div> <b>히터기 </b>
+        <br>
+        <b>히터기 </b>
         <input type="checkbox"> 55W
         <input type="checkbox"> 100W
         <input type="checkbox"> 200W
         <input type="checkbox"> 300W
         <input type="checkbox"> 500W
     </div>
+    <div id="map" style="width:100%;height:350px;"></div>
+
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4c03d44a7a61b0deb3f92fc7ddf5d1c5"></script>
+    <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(36.34850850518955, 127.38218186914497), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+        // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+        var map = new kakao.maps.Map(mapContainer, mapOption); 
+    </script>
 </body>
 
 </html>
