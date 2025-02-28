@@ -46,7 +46,7 @@
                         console.log(address);
                         var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
                             mapOption = {
-                                center: new kakao.maps.LatLng(address[0]['lon'], address[0]['lat']), // 지도의 중심좌표
+                                center: new kakao.maps.LatLng(address[0]['lat'], address[0]['lon']), // 지도의 중심좌표
                                 level: 3 // 지도의 확대 레벨
                             };
 
@@ -57,7 +57,7 @@
                         for(let i=0; i<address.length; i++){
                             positions.push({
                                 title : address[i]['title']
-                                ,latlng : new kakao.maps.LatLng(address[i]['lon'], address[i]['lat'])
+                                ,latlng : new kakao.maps.LatLng(address[i]['lat'], address[i]['lon'])
                             });
                         }
 
