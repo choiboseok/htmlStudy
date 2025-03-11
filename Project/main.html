@@ -30,10 +30,14 @@
 
 <body>
   <script>
-    function fn_category(obj){
-      console.log(obj)
-      obj.style.display = "block"
-    }
+    $(document).ready(function(){
+      $(".category").click(function(){
+        console.log(this);
+        let cate = this;
+        cate.style.display="block";
+        console.log(cate)
+      });
+    });
   </script>
   <div class="top"> <!-- 상단 -->
     <button id="home" style="margin-right: 10px;">HOME</button>
@@ -79,7 +83,7 @@
     </div>
   </div>
 
-  <div class="category" onclick="fn_category(this)"> <!-- 메뉴 카테고리 -->
+  <div class="category"> <!-- 메뉴 카테고리 -->
     <button type="button" class="btn btn-light" id="fish">어항</button>
     <button type="button" class="btn btn-light" id="clean">여과기</button>
     <button type="button" class="btn btn-light" id="heater">히터기</button>
