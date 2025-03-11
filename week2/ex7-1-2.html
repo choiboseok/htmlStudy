@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기념일</title>
+    <script>
+        function fn_dday(start, days)
+        {
+            console.log(start, days);
+            let startDay = new Date(start);
+            let startTime = startDay.getTime();
+            let dDay = startTime + (days * (24 * 60 * 60 * 1000));
+            let dDate = new Date(dDay);
+            console.log(dDate);
+
+            let year = dDate.getFullYear();
+            //padStart(총길이, 채우고자하는 문자열)
+            let month = String(dDate.getMonth() + 1).padStart(2, '0');
+            let day = String(dDate.getDate()).padStart(2, '0');
+            
+            //템플릿 리터럴 `${변수}문자열`  (') <--백틱
+            return `${year}년${month}월${day}일`;
+            // return year + "-" + month + "-" + day;
+        }
+        // fn_dday("2025-01-21", 10);
+        // console.log(fn_dday("2025-01-21", 100));
+
+        let start = prompt("날짜를 입력해주세요");
+
+
+        for(let i=100; i<=1000; i+=100)
+        {
+            // document.write(fn_dday(start, i)+"<hr>");
+            document.write(`${fn_dday(start, i)}<hr>`);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

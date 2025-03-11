@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그림판1</title>
+    <script>
+        let canvas, context;
+        let startX, startY;
+        let dragging = false; // 마우스 클릭 여부
+        let tool = 'P';
+        let size = 1;
+        function init(){
+            canvas = document.getElementById("myCanvas");
+            context = canvas.getContext("2d");
+            context.lineWidth = size; // 그림 그릴떄 두께
+            context.lineCap = "round"; // 부드럽게 그려지는 용도
+            context.strokeStyle = "black" // 색상 변경
+            canvas.addEventListener('mousemove', move);
+            canvas.addEventListener('mousedown', down);
+            canvas.addEventListener('mouseup', up);
+            canvas.addEventListener('mouseout', out);
+        }
+        window.onload = init;
+        // 클릭 했을때
+        function down(e){
+            dragging = true;
+            startX = e.offsetX; // 시작 위치
+            startY = e.offsetY;
+            if(tool == 'E'){
+                context.clearRect(startX, startY, size, size);
+            }
+        }
+        // 사이즈, 색깔 변경
+        function change(c){
+            if(c.type=="color"){
+                context.strokeStyle = c.value; // 컬러
+            } else if(c.type=="range"){
+                context.lineWidth = c.value // 사이즈
+                size = c.value;
+            } else if(c.name == 'tool'){ // 지우개
+                tool = c.value;
+                if(tool == 'E'){
+                    canvas.style.cursor = "url(cursor.cur), auto";
+                } else {
+                    canvas.style.cursor = 'auto';
+                }
+            }
+        }
+        // 클릭 놨을때
+        function up(){ dragging =false; }
+        // 캔버스를 나갔을때
+        function out(){ dragging =false; }
+        // 그릴때(캔버스 위를 클릭하고 움직일때)
+        function draw(curX,curY){
+            if(tool=='P'){
+                context.beginPath();
+                context.moveTo(startX, startY);
+                context.lineTo(curX, curY);
+                context.stroke();
+            } else{
+                context.clearRect(curX, curY, size, size);
+            }
+        }
+        // 마우스 무브
+        function move(e){
+            if(!dragging) { return; } // true가 아니면 그려지지 않도록
+            let curX = e.offsetX;
+            let curY = e.offsetY;
+            draw(curX, curY);
+            startX = curX;
+            startY = curY;
+        }
+        function allclear(){
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    </script>
+</head>
+<body>
+    <h3>그림을 그려보세요</h3>
+    <hr>
+    <canvas id="myCanvas" width="400px" height="400px" style="background-color: azure;"></canvas>
+    <div>
+        <table>
+            <tr>
+                <td>컬러</td>
+                <td><input type="color" onchange="change(this)"></td> <!-- this는 해당 input에 dom객체 this(type, value) 가 들어온다고 생각하면 됨-->
+            </tr>
+            <tr>
+                <td>사이즈</td>
+                <td><input type="range" min="5" max="30" value="1" onchange="change(this)"></td>
+            </tr>
+            <tr>
+                <td><label for="">붓:</label><input checked type="radio" name="tool" value="P" onchange="change(this)">
+                    <label for="">지우개</label><input type="radio" name="tool" value="E" onchange="change(this)">
+                </td>
+                <td><button onclick="allclear()">전체삭제</button></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

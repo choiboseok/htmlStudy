@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이벤트 객체</title>
+    <script>
+        let width=1;
+        function fn_up(ogj) {obj.style.fontStyle ='normal'} // 클릭이 놓았을때
+        function fn_down(obj) {obj.style.fontStyle ='italic'} // 클릭했을때
+        function fn_over(obj) {obj.style.borderColor = 'violet'}
+        function fn_out(obj) {obj.style.borderColor = 'lightgray'}
+        function fn_wheel(e, obj) {
+            if(e.wheelDelta<0){ 
+                width--; //내리기
+            }else{
+                width++; //올리기
+            }
+            obj.style.borderStyle = 'ridge';
+            obj.style.borderWidth = width + 'px';
+        }
+        function fn_size(obj){
+            let el = document.getElementById('span_id');
+            // console.log(el.style.fontSize); // span에 사이즈 확인
+            // console.log(window.getComputedStyle(el).fontSize);
+            let currentSize = el.style.fontSize || window.getComputedStyle(el).fontSize; // a||b a가 없으면 b선택, a가 있으면 a
+            let objText = obj.innerText;
+            let fontSize = parseInt(currentSize); // 숫자로 변환 16px -> 16
+            if(objText == '+'){
+                fontSize++;
+            } else if(objText == '-'){
+                fontSize--;
+            }
+            el.style.fontSize = fontSize + "px";  // 조건문을 지난 fontSize ---> el(span)
+        }
+    </script>
+</head>
+<body>
+    <h3>마우스 이벤트</h3>
+    <hr>
+    마우스 관련 <span id ="span_id" onmouseup="fn_up(this)" onmousedown="fn_down(this)" onmouseout="fn_out(this)" onmouseover="fn_over(this)" onmousewheel="fn_wheel(event, this)" 
+                    >이벤트</span>가 발생 합니다.
+    <button type="button" onclick="fn_size(this)"> + </button>
+    <button type="button" onclick="fn_size(this)"> - </button>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 문제</title>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        function fn_addr()
+        {
+            new daum.Postcode({
+            oncomplete: function(data) {
+                console.log(data);
+                document.getElementById('address').value=data.address;
+                // address 라는 아이디를 찾은후 value에 주소값을 넣는다.
+            }
+        }).open();
+        }
+    </script>
+</head>
+<body>
+    <h1>회원 가입 폼</h1>
+    <h3>아래 정보를 입력하여 회원가입을 완료하세요</h3>
+    <hr>
+    <form action="">
+        <fieldset>
+            <legend>개인정보</legend>
+            이름 : <input type="email" placeholder="홍길동" required> <br> <!-- required 필수 입력값으로 설정 -->
+            <br>
+            생년월일 : <input type="date" value="연도-월-일"><br>
+            <br>
+            성별 : <input type="radio" value="chk" name="chk"> 남성
+            <input type="radio" value="1" name="chk"> 여성
+            <input type="radio" value="1" name="chk"> 기타
+        </fieldset>
+        <fieldset>
+            <legend>연락처 정보</legend>
+            이메일 : <input type="text" placeholder="example@example.com" required> <br>
+            <br>
+            전화번호 : <input type="tel" placeholder="010-1234-1234" required> <br>
+            <br>
+            주소 : <br><textarea type="textarea" id="address" cols="40" rows="5" placeholder="주소를 입력하세요" onclick="fn_addr();" required></textarea>
+        </fieldset>
+        <fieldset>
+            <legend>계정 정보</legend>
+            사용자명 : <input type="text" required><br>
+            <br>
+            비밀번호 : <input type="password" required><br>
+            <br>
+            비밀번호 확인 : <input type="password" required><br>
+            <br>
+            보안 질문:
+            <select name="sec" id="" required>
+                <option value="1">가장 좋아하는 반려동물 이름은?</option>
+                <option value="2">졸업한 초등학교 이름은?</option>
+                <option value="3">태어난 도시 이름은?</option>
+            </select> <br>
+            <br>
+            보안 답변 : <input type="text" required>
+        </fieldset>
+        <fieldset>
+            <legend>동의</legend>
+            <input type="checkbox"> 이용 약관에 동의합니다. <br>
+            <input type="checkbox"> 개인 정보 보호 정책에 동의합니다. <br>
+        </fieldset>
+        <input type="submit" value="가입하기" >
+        <input type="reset">
+    </form>
+</body>
+</html>

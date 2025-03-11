@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <style>
+    .top {
+      margin-left: 200px;
+      margin-right: 200px;
+    }
+
+    .category {
+      margin-left: 50px;
+    }
+    .content{
+      display: none;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <script>
+    function fn_category(obj){
+      console.log(obj)
+      obj.style.display = "block"
+    }
+  </script>
+  <div class="top"> <!-- 상단 -->
+    <button id="home" style="margin-right: 10px;">HOME</button>
+    <input type="search" size="70">
+    <button type="submit">검색</button>
+    <span style="margin: 100px;"></span>
+    <button type="button" class="btn btn-light" id="login" style="margin-right: 10px;">로그인</button>
+    <button type="button" class="btn btn-light" id="signup" style="margin-right: 10px;">회원가입</button>
+    <button type="button" class="btn btn-light" id="mypage" style="margin-right: 10px;">마이페이지</button>
+    <button type="button" class="btn btn-light" id="service">고객센터</button>
+  </div>
+
+  <div class="container"> <!-- 메인 화면 이미지 슬라이드-->
+    <div class="row p-2"></div>
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+              <img src="./img/sample1.png" class="d-block w-50" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+              <img src="./img/sample2.png" class="d-block w-50" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+              <img src="./img/sample3.png" class="d-block w-50" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
+  </div>
+
+  <div class="category" onclick="fn_category(this)"> <!-- 메뉴 카테고리 -->
+    <button type="button" class="btn btn-light" id="fish">어항</button>
+    <button type="button" class="btn btn-light" id="clean">여과기</button>
+    <button type="button" class="btn btn-light" id="heater">히터기</button>
+    <button type="button" class="btn btn-light" id="food">사료/영양제</button>
+    <button type="button" class="btn btn-light" id="light">소켓/조명</button>
+    <button type="button" class="btn btn-light" id="shore">육지</button>
+  </div>
+
+  <div class="content">
+    <div class="fish" style="margin-left: 50px;"> <!-- 어항 -->
+      <form action="#">
+        <input type="reset" value="전체초기화"><br>
+        <b>브랜드</b>
+        <input type="checkbox"> 30
+        <input type="checkbox"> 45
+        <input type="checkbox"> 60
+        <b>가로</b>
+        <input type="checkbox"> 30
+        <input type="checkbox"> 45
+        <input type="checkbox"> 60
+        <input type="checkbox"> 90
+        <input type="checkbox"> 120
+        <br>
+        <b>세로</b>
+        <input type="checkbox"> 30
+        <input type="checkbox"> 45
+        <input type="checkbox"> 60
+        <input type="checkbox"> 90
+        <input type="checkbox"> 120
+        <br>
+        <b>높이</b>
+        <input type="checkbox"> 30
+        <input type="checkbox"> 45
+        <input type="checkbox"> 60
+      </form>
+    </div>
+    <div class="clean" style="margin-left: 50px;"> <!-- 여과기 -->
+      <form action="#">
+        <input type="reset" value="전체초기화"><br>
+        <b>브랜드</b>
+        <input type="checkbox"> 에하임
+        <input type="checkbox"> QQAqua
+        <input type="checkbox"> 그로비타
+        <input type="checkbox"> 수이사쿠
+        <input type="checkbox"> 아마존
+        <input type="checkbox"> 고토부키
+        <input type="checkbox"> 하늘바람 집똥기
+        <br>
+        <b>종류</b>
+        <input type="checkbox"> 외부
+        <input type="checkbox"> 상면
+        <input type="checkbox"> 측면
+        <input type="checkbox"> 단지
+        <input type="checkbox"> 기포기
+        <br>
+      </form>
+    </div>
+    <div class="heater" style="margin-left: 50px;"> <!-- 히터기 -->
+      <form action="#">
+        <input type="reset" value="전체초기화"><br>
+        <b>브랜드</b>
+        <input type="checkbox"> 아마존
+        <input type="checkbox"> 페리하
+        <input type="checkbox"> 아쿠아이엘
+        <input type="checkbox"> 클리오네
+        <br>
+        <b>W</b>
+        <input type="checkbox"> 50
+        <input type="checkbox"> 70
+        <input type="checkbox"> 100
+        <input type="checkbox"> 150
+        <input type="checkbox"> 200
+        <input type="checkbox"> 300
+      </form>
+    </div>
+    <div class="food" style="margin-left: 50px;"> <!-- 사료 -->
+      <form action="#">
+        <input type="reset" value="전체초기화"><br>
+        <b>브랜드</b>
+        <input type="checkbox"> 랩토민
+        <input type="checkbox"> 마주리
+        <input type="checkbox"> 히카리
+        <input type="checkbox"> 그로비타
+        <input type="checkbox"> 네이처팜
+        <input type="checkbox"> 이스타
+        <input type="checkbox"> 아마존
+        <input type="checkbox"> 타비아
+        <br>
+        <b>종류</b>
+        <input type="checkbox">
+        <br>
+      </form>
+    </div>
+    <div class="light" style="margin-left: 50px;"> <!-- 조명 -->
+      <form action="#">
+        <input type="reset" value="전체초기화"><br>
+        <b>브랜드</b>
+        <input type="checkbox"> 스파크쥬
+        <input type="checkbox"> 엑소테라
+        <br>
+        <b>종류</b>
+        <input type="checkbox"> 30
+        <br>
+        <b>소켓</b>
+        <input type="checkbox"> 30
+        <br>
+        <b>조명</b>
+        <input type="checkbox"> 30
+        <br>
+      </form>
+    </div>
+    <div class="shore" style="margin-left: 50px;"> <!-- 육지 -->
+      <form action="#">
+        <input type="reset" value="전체초기화"><br>
+        <b>가로</b>
+        <input type="checkbox"> 30
+        <b>세로</b>
+        <input type="checkbox"> 30
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

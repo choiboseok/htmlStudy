@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로꾸꺼</title>
+</head>
+<body>
+    <h3>텍스트를 입력받아 거꾸로 출력하시오.</h3>
+    <hr>
+    <script>
+        let word = prompt("텍스트를 입력하세요", "이효리");
+        let str = word.split('').reverse().join(',');
+        // document.write(`${text}를 거꾸로 하면 : ${str.join("")}`);
+        document.write(word + "을 거꾸로 하면:" + str)
+
+    </script>
+</body>
+</html>

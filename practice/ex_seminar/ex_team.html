@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜덤 팀 추첨</title>
+    <link rel="stylesheet" href="team.css">
+    <script>
+        function createTeam() {
+            let classMate = ["강지석", "김도래", "김병준", "김서영", "김소연", "김원진", "박정단",
+                "박종욱", "송은호", "신미정", "이예성", "이예은", "정지나", "최보석", "한수정"];
+            let temp;
+
+            // 추첨하기 클릭시 classMate를 랜덤 순서로 셔플 
+            for (let a = 0; a < classMate.length; a++) {
+                i = parseInt(Math.random() * (classMate.length));
+                j = parseInt(Math.random() * (classMate.length));
+                temp = classMate[i];
+                classMate[i] = classMate[j];
+                classMate[j] = temp
+            }
+            // 팀은 총 3팀으로 3개의 빈배열을 만들어 담아주고 
+            let team_size = 3;
+            let teams = [];
+            for (let i = 0; i < team_size; i++) {
+                teams[i] = [];
+            }
+            for (let i = 0; i < classMate.length; i++) {
+                let teamIdx = i % team_size;
+                teams[teamIdx].push(classMate[i]);
+            }
+            displayTems();
+
+            // 화면에 출력 div id = 'teams' appendChild (css는 div의 class를 team-box 넣어주면 됨)
+            function displayTems() {
+                let div = document.getElementById('teams');
+                div.innerHTML = '';
+                for (let i = 0; i < teams.length; i++) {
+                    let newDiv = document.createElement("div");
+                    newDiv.setAttribute("class", "team-box");
+                    newDiv.innerHTML = `<h3>팀 ${i + 1} </h3><p>${teams[i].join(',')}</p>`;
+                    div.appendChild(newDiv); //하위 요소에 붙이기
+                }
+            }
+            /*
+           function displayTeams(){
+               let k=classMate.length;
+               let team=[];
+               for(let i=0; i<3; i++){
+                   for(let j=0; j<5; j++){
+                       team[j] = classMate[k-1];
+                       k--;
+                   }
+                   let div = document.createElement("div");
+                   div.innerHTML ='';
+                   let arr = document.getElementById('teams');
+                   // div.className = 'team-box';
+                   div.setAttribute("class", "team-box");
+                   div.innerHTML = "팀" + (i+1) + "<br>" + team;
+                   div.innerHTML = `<h3>팀 ${i+1} </h3><br> <p> ${team} </p>`;
+                   arr.appendChild(div);
+               }
+           }
+           */
+
+            // 출력 후 버튼
+        }
+    </script>
+</head>
+
+<body>
+    <h1>랜덤 팀 구성</h1>
+    <button type="button" onclick="createTeam()">추첨하기</button>
+    <div id="teams" class="team-box"></div>
+</body>
+
+</html>

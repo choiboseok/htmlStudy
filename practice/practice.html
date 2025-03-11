@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url : "https://api.odcloud.kr/api/15008949/v1/uddi:c629de45-7b40-407c-bc6a-be2c7f7c3979_201911050947?page=1&perPage=10&serviceKey=%2FY3iX42ummzEqdCFZ%2Fx2D0sU5Mgy3xJgTyZBdE0RZEBP0YPNoP0ywKxFS1RpRAD9W2kaekLlTCw3t89ACaY8rA%3D%3D"
+                , method : "GET"
+                , dataType : "JSON"
+                , success : function(res){
+                    console.log(res);
+                }
+                , error : function(err){
+                    console.log(err);
+                }
+            })
+        })
+    </script>
+</body>
+</html>

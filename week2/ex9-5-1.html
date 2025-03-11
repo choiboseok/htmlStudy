@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우클릭 컨트롤</title>
+</head>
+<body>
+    <h2>우클릭 메뉴 활성화 테스트</h2>
+    <button onclick="resetMenu()">메뉴 차단</button>
+    <script>
+        let enable = false; 
+        let adminId = 'admin123';
+
+        document.addEventListener('contextmenu', function(event){
+            if(!enable){
+                event.preventDefault();
+                let str = prompt("관리자 ID를 입력하세요");
+                if(str==adminId){enable=true;} //=== - 타입과 값이 같은지
+            }
+        }, true);
+            
+        function resetMenu()
+        {
+            enable = false;
+            alert("우클릭 메뉴 차단");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+</head>
+<body>
+    <script>
+        let userInfo = sessionStorage.getItem("loginUser");
+        if(!userInfo){
+            location.href = 'login.html';
+        } else{
+            // document.write(userInfo + "님 반갑습니다.");
+            window.onload = function(){
+                document.getElementById("userId").value = userInfo + "님 반갑습니다.";
+            }
+        }
+        function logout(){
+            sessionStorage.removeItem("loginUser");
+            location.reload();
+        }
+    </script>
+    <input type="text" readonly id ="userId">
+    <input type="button" value="logout" onclick="logout()">
+</body>
+</html>
