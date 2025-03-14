@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <title>Document</title>
     <style>
         .top {
@@ -42,11 +43,23 @@
         }
 
     </style>
+    <script>
+        $(document).ready(function(){
+            $(".login").click(function(){
+                window.open("login.html")
+            })
+            $(".register").click(function(){
+                window.open("register.html")
+            })
+        });
+    </script>
 </head>
 
 <body>
     <nav class="top">
         <button class="menu" type="button"> 메뉴 </button>
+        <button class="login" type="button"> 로그인 </button>
+        <button class="register" type="button"> 회원가입 </button>
         <img class="logo" src="./img/sample1.png" alt="" width="50" height="50">
         <button class="search" type="button"> 검색 </button>
     </nav>
@@ -98,14 +111,18 @@
             <input type="checkbox"> 수이사쿠
             <input type="checkbox"> 아마존
             <input type="checkbox"> 고토부키
-            <input type="checkbox"> 하늘바람 집똥기
             <br>
             <b>종류</b>
             <input type="checkbox"> 외부
             <input type="checkbox"> 상면
             <input type="checkbox"> 측면
             <input type="checkbox"> 단지
+            <input type="checkbox"> 걸이식
+            <br>
+            <b>기타</b>
+            <input type="checkbox"> 하늘바람 집똥기
             <input type="checkbox"> 기포기
+            <input type="checkbox"> 여과재
             <br>
             <input type="reset" value="초기화"><br>
         </form>
@@ -117,6 +134,8 @@
             <input type="checkbox"> 페리하
             <input type="checkbox"> 아쿠아이엘
             <input type="checkbox"> 클리오네
+            <input type="checkbox"> 에하임
+            <input type="checkbox"> 오아세
             <br>
             <b>W(와트)</b>
             <input type="checkbox"> 50
