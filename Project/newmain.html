@@ -12,32 +12,18 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <title>Document</title>
     <style>
-        .top {
-            background-color: gray;
-        }
-
-        body {
-            margin-right: 30%;
-            margin-left: 30%;
-        }
-
-        .menu {
-            float: left;
-        }
-
-        .category {
-            margin-top: 35%;
-            text-decoration: underline;
-        }
-
-        #select {
-            margin-left: 7%;
-            font-size: large;
-            color: black;
-        }
-
         .content {
             display: none;
+        }
+
+        .navbar{color: black;}
+        .category {
+            text-align: center;
+            margin-top: 25%;
+            overflow-anchor: none;
+        }
+        body{
+            
         }
     </style>
     <script>
@@ -53,44 +39,45 @@
 </head>
 
 <body>
-    <nav class="navbar bg-body-tertiary fixed-top" style="margin-right: 30%; margin-left: 30%; ">
+    <nav class="navbar bg-secondary.bg-gradient fixed-top"> 
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle naviation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas offcanvas-end offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">메뉴</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                    <div class="bg-white p-4" style="overflow:">
-                        <a class="menu" href="newmain.html"> 메인 </a>
-                        <a class="login" href="#"> 로그인 </a>
-                        <a class="register" href="#"> 회원가입 </a>
+                    <div class="bg-white p-4">
+                        <a class="menu" href="newmain.html"> 메인 <br></a>
+                        <a class="login" href="login.html"> 로그인 <br></a>
+                        <a class="register" href="register.html"> 회원가입 <br></a>
                         <img class="logo" src="./img/sample1.png" alt="" width="50" height="50">
                         <form class="d-flex mt-3" role="search">
                             <input class="form-control me-2" type="search" placeholder="내용을 입력하세요" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">검색</button>
-                          </form>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
-
-    <div class="category" style="overflow-anchor: none; cursor: grabbing;"> <!-- 항목 -->
-        <article draggable="true" style="pointer-events: none; scroll-snap-type: none; scroll-behavior: auto;">
-            <div class="menu">
-                <a class="fish" id="select" href="">어항</a>
-                <a class="clean" id="select" href="">여과기</a>
-                <a class="heater" id="select" href="">히터기</a>
-                <a class="food" id="select" href="">사료/영양제</a>
-                <a class="light" id="select" href="">소켓/조명</a>
-                <a class="shore" id="select" href="">육지</a>
-            </div>
-        </article>
+    <div class="category"> <!-- 항목 -->
+        <a class="fish" href="">어항</a>
+        <a class="clean" href="">여과기</a>
+        <a class="heater" href="">히터기</a>
+        <a class="food" href="">사료/영양제</a>
+        <a class="light" href="">소켓/조명</a>
+        <a class="shore" href="">육지</a>
+        <a class="shore" href="">육지</a>
+        <a class="shore" href="">육지</a>
+        <a class="shore" href="">육지</a>
+        <a class="shore" href="">육지</a>
+        <a class="shore" href="">육지</a>
     </div>
 
     <div class="content">
