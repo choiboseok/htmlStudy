@@ -12,18 +12,25 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <title>Document</title>
     <style>
+        body{
+            margin-left: 15%;
+            margin-right: 15%;
+        }
         .content {
             display: none;
         }
 
-        .navbar{color: black;}
         .category {
-            text-align: center;
             margin-top: 25%;
-            overflow-anchor: none;
+            overflow: none;
+            cursor: grabbing;
         }
-        body{
-            
+        .category a{
+            margin-left: 5%;
+        }
+        .navbar{
+            margin-left: 15%;
+            margin-right: 15%;
         }
     </style>
     <script>
@@ -39,10 +46,10 @@
 </head>
 
 <body>
-    <nav class="navbar bg-secondary.bg-gradient fixed-top"> 
+    <nav class="navbar bg-secondary bg-gradient fixed-top "> 
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle naviation">
+                aria-controls="offcanvasNavbar" aria-expanded="" aria-label="Toggle naviation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="offcanvas offcanvas-end offcanvas-start" tabindex="-1" id="offcanvasNavbar"
@@ -73,11 +80,11 @@
         <a class="food" href="">사료/영양제</a>
         <a class="light" href="">소켓/조명</a>
         <a class="shore" href="">육지</a>
-        <a class="shore" href="">육지</a>
-        <a class="shore" href="">육지</a>
-        <a class="shore" href="">육지</a>
-        <a class="shore" href="">육지</a>
-        <a class="shore" href="">육지</a>
+        <a class="shore" href="">청소</a>
+        <a class="shore" href="">기타</a>
+        <a class="shore" href="">기타</a>
+        <a class="shore" href="">등</a>
+        <a class="shore" href="">등</a>
     </div>
 
     <div class="content">
