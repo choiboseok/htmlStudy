@@ -10,23 +10,36 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <title>Document</title>
+    <title>거북이</title>
     <style>
         body{
             margin-left: 15%;
             margin-right: 15%;
         }
         .content {
-            display: none;
+            /* display: none; */
+            margin-top: 8%;
         }
 
         .category {
             margin-top: 25%;
-            overflow: none;
+            overflow: auto hidden;
+            overflow-anchor: none;
+            white-space: nowrap;
+            cursor: grab;
             cursor: grabbing;
+            height: 50px;
+            /* pointer-events: none; */
+            scroll-snap-type: none;
+            scroll-behavior: auto;
+            -webkit-overflow-scrolling: touch;
         }
-        .category a{
-            margin-left: 5%;
+        .scroll-container::-webkit-scrollbar {
+            display: none; /* 스크롤바 숨김 */
+        }
+        .category a {
+            margin-left: 50px;
+            border: 1px ridge;
         }
         .navbar{
             margin-left: 15%;
@@ -42,6 +55,39 @@
                 window.open("register.html")
             })
         });
+
+        const container = document.querySelector('.category');
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            container.classList.add('active');
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+            container.style.cursor = 'grabbing';
+        });
+
+        container.addEventListener('mouseleave', () => {
+            isDown = false;
+            container.style.cursor = 'grab';
+        });
+
+        container.addEventListener('mouseup', () => {
+            isDown = false;
+            container.style.cursor = 'grab';
+        });
+
+        container.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2; // 속도 조절
+            container.scrollLeft = scrollLeft - walk;
+        });
+    </script>
     </script>
 </head>
 
@@ -73,18 +119,18 @@
             </div>
         </div>
     </nav>
-    <div class="category"> <!-- 항목 -->
+    <div class="category" draggable="true"> <!-- 항목 -->
         <a class="fish" href="">어항</a>
         <a class="clean" href="">여과기</a>
         <a class="heater" href="">히터기</a>
         <a class="food" href="">사료/영양제</a>
         <a class="light" href="">소켓/조명</a>
         <a class="shore" href="">육지</a>
-        <a class="shore" href="">청소</a>
+        <!-- <a class="shore" href="">청소</a>
         <a class="shore" href="">기타</a>
         <a class="shore" href="">기타</a>
         <a class="shore" href="">등</a>
-        <a class="shore" href="">등</a>
+        <a class="shore" href="">등</a> -->
     </div>
 
     <div class="content">
