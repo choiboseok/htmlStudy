@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop in Style</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .hero-section {
+            background-color: #212529;
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+        .card {
+            border: none;
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .badge-sale {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: black;
+            color: white;
+            font-size: 12px;
+            padding: 5px 8px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 네비게이션 -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <h1>Shop in style</h1>
+        <p>With this shop homepage template</p>
+    </header>
+
+    <!-- 상품 목록 -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card p-3 position-relative">
+                    <img src="https://via.placeholder.com/450x300" class="card-img-top" alt="상품 이미지">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Fancy Product</h5>
+                        <p class="text-muted">$40.00 - $80.00</p>
+                        <a href="#" class="btn btn-outline-dark">View options</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card p-3 position-relative">
+                    <span class="badge-sale">Sale</span>
+                    <img src="https://via.placeholder.com/450x300" class="card-img-top" alt="상품 이미지">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Special Item</h5>
+                        <div class="text-warning mb-2">
+                            ★★★★★
+                        </div>
+                        <p><span class="text-muted text-decoration-line-through">$20.00</span> <strong>$18.00</strong></p>
+                        <a href="#" class="btn btn-dark">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
