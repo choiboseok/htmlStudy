@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>YOLO Camera Detection</title>
+</head>
+<body>
+    <h2>Live Camera Object Detection</h2>
+    <video src="" id="video" autoplay></video>
+    <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+    <img src="" id="resultImage" alt="">
+    <div id="controls">
+        <button id="startBtn">start detection</button>
+        <button id="stopBtn">stop detection</button>
+    </div>
+    <script>
+        $(document).ready(function(){
+            let video = document.getElementById("video");
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            let resultImage = document.getElementById("resultImage");
+            let detectionInterval;
+            // video stream
+            navigator.mediaDevices.getUserMedia({video:true}).then(function(stream){
+                video.srcObject=stream;
+            })
+            .then(function(e){
+                console.log("err", e)
+            });
+            $("#startBtn").click(function(){
+                detectionInterval = setInterval(captureFrame, 100); 
+            });
+            $("#stopBtn").click(function(){
+                clearInterval(detectionInterval);
+            });
+            function captureFrame(){
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                let dataUrl = canvas.toDataURL("image/jpeg")
+                $.ajax({
+                    type : "POST",
+                    url : "/analyze_frame",
+                    data : {image:dataUrl},
+                    success:function(res){
+                        if(res.resultImage){
+                            resultImg.src = res.resultImage;
+                        }
+                    }
+                })
+            }
+        });
+    </script>
+</body>
+</html>
